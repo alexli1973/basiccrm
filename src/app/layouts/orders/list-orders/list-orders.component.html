@@ -1,0 +1,22 @@
+<div class=" col-md-6">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Order ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Client ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of allOrders; let i = index">
+      <!--<td>{{ i+1}}</td>-->
+      <td>{{ order?.orderId }}</td>
+      <td>{{ order?.nameOrder }}</td>
+      <td>{{ order?.amount}}</td>
+      <td>{{ order?.clientId }}</td>
+      <!--<td><button (click)="removeClient()" class="btn btn-primary-outline">Remove</button></td>-->
+    </tr>
+    </tbody>
+  </table>
+</div>

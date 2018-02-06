@@ -1,0 +1,65 @@
+<section class="section">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bordered">
+          <div class="header-block">
+            <h3 class="title">Customers</h3>
+          </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last name</th>
+              <th class="text-lg-center">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let client of allClients; let idx = index">
+              <th scope="row">{{idx + 1}}</th>
+              <td>{{client.firstName}}</td>
+              <td>{{client.lastName}}</td>
+              <td>{{client.clientEmail}}</td>
+              <td class="text-lg-center">
+                <a [routerLink]="['/system/history', client.id]" class="btn btn-primary-outline"> Show Orders</a>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header bordered">
+        <div class="header-block">
+          <h3 class="title">Orders</h3>
+        </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Order</th>
+              <th>Price</th>
+              <th class="text-lg-center">Customer Contact</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let order of allOrders; let idx = index">
+              <th scope="row">{{idx + 1}}</th>
+              <td>{{order.nameOrder}}</td>
+              <td>{{order.amount}}</td>
+              <td class="text-lg-center">{{order.clientName}}</td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

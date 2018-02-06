@@ -1,0 +1,89 @@
+<!--
+<div class="card">
+  <div class="card-header bordered">
+    <div class="header-block">
+      <h3 class="title">Step 2. Create a New Order</h3>
+    </div>
+  </div>
+<div class="card-block">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+      <label class="control-label" for="client">Clients</label>
+      <select
+        class="form-control"
+        id="client"
+        [(ngModel)]="currentClientId"
+        ngModel
+        (change)="onClientChange()"
+        [ngModelOptions]="{standalone: true}"
+      >
+        <option *ngFor="let client of allClients"
+                [value]="client.id"
+        >
+          {{client.firstName}} {{client.lastName}}
+        </option>
+      </select>
+    </div>
+    &lt;!&ndash;<div class="form-group">
+      <label class="control-label">Выберите тип</label>
+      <div>
+        <label>
+          <input class="radio" name="radios" type="radio">
+          <span>Доход</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input class="radio" name="radios" type="radio" checked>
+          <span>Расход</span>
+        </label>
+      </div>
+    </div>&ndash;&gt;
+    <div class="form-group"
+         [ngClass]="{'has-error': nameOrder.invalid && nameOrder.touched}"
+    >
+      <label class="control-label" for="nameOrder">Enter Name Order</label>
+      <input
+        type="text"
+        id="nameOrder"
+        class="form-control"
+        placeholder="for example: laptop"
+        required
+        name="nameOrder"
+        ngModel
+        #nameOrder="ngModel"
+      >
+      <span class="form-help-text"
+            *ngIf="nameOrder.invalid && nameOrder.touched"
+      >
+        Please enter a valid name
+      </span>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': amount.invalid && amount.touched}"
+    >
+      <label class="control-label" for="amount">Enter price</label>
+      <input
+        type="number"
+        id="amount"
+        class="form-control"
+        required
+        name="amount"
+        [ngModel]="1"
+        min="1"
+        #amount="ngModel"
+      >
+      <span class="form-help-text"
+            *ngIf="amount.invalid && amount.touched"
+      >
+        Please enter a valid price
+      </span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Add</button>
+  </form>
+</div>
+</div>
+
+-->

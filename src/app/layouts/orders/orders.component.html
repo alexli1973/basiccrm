@@ -1,0 +1,16 @@
+
+<!--<section class="section" *ngIf="!isLoaded">
+  Loading....
+</section>-->
+
+<section class="section" >
+  <div class="row">
+    <div class="col-md-6">
+      <app-add-order [allClients]="allClients" (eventOrderAdd)="newOrderAdded($event)"></app-add-order>
+    </div>
+    <div class="col-md-6" *ngIf="orderIsLoaded">
+      <app-edit-order [allOrders]="allOrders" (eventOrderEdit)="orderWasEdited($event)"></app-edit-order>
+    </div>
+    <app-list-orders [allOrders]="allOrders"></app-list-orders>
+  </div>
+</section>

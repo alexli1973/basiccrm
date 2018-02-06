@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-header bordered">
+    <div class="header-block">
+      <h3 class="title">Step 1. Create a New Customer</h3>
+    </div>
+  </div>
+  <div class="card-block">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div
+        class="form-group"
+        [ngClass]="{'has-error': firstName.invalid && firstName.touched}"
+      >
+        <label class="control-label" for="first-name">First name</label>
+        <input
+          type="text"
+          id="first-name"
+          class="form-control"
+          required
+          name="firstName"
+          #firstName="ngModel"
+          ngModel
+        >
+        <span
+          *ngIf="firstName.invalid && firstName.touched"
+          class="form-help-text"
+        >Please enter a valid first name</span>
+      </div>
+      <div class="form-group"
+           [ngClass]="{'has-error': lastName.invalid && lastName.touched}"
+      >
+        <label class="control-label" for="last-name">Last name</label>
+        <input
+          type="text"
+          id="last-name"
+          class="form-control"
+          required
+          name="lastName"
+          #lastName="ngModel"
+          ngModel
+        >
+        <span
+          *ngIf="lastName.invalid && lastName.touched"
+          class="form-help-text"
+        >Please enter a valid last name</span>
+      </div>
+      <div class="form-group"
+           [ngClass]="{'has-error': clientEmail.invalid && clientEmail.touched}">
+        <label class="control-label" for="client-email">Email</label>
+        <input
+          type="email"
+          id="client-email"
+          class="form-control"
+          required pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"
+          name="clientEmail"
+          #clientEmail="ngModel"
+          ngModel
+        >
+        <span
+          *ngIf="clientEmail.invalid && clientEmail.touched"
+          class="form-help-text"
+        >Please enter a valid email</span>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Add</button>
+    </form>
+  </div>
+</div>
+

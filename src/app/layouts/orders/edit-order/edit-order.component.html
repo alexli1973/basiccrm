@@ -1,0 +1,70 @@
+<div class="card">
+  <div class="card-header bordered">
+    <div class="header-block">
+      <h3 class="title">Edit Order</h3>
+    </div>
+  </div>
+  <div class="card-block">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <label class="control-label" for="edit-order">Orders</label>
+        <select
+          class="form-control"
+          id="edit-order"
+          [(ngModel)]="currentOrderEditId"
+          (change)="orderEditChange()"
+          [ngModelOptions]="{standalone: true}"
+        >
+          <option *ngFor="let order of allOrders"
+                  [value]="order.orderId"
+          >
+            {{order.nameOrder}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group"
+           [ngClass]="{'has-error': nameOrder.invalid && nameOrder.touched}"
+      >
+        <label class="control-label" for="edit-order-name">Order Name</label>
+        <input
+          type="text"
+          id="edit-order-name"
+          class="form-control"
+          required
+          #nameOrder="ngModel"
+          name="nameOrder"
+          [ngModel]="currentOrderEdit.nameOrder"
+        >
+        <span
+          *ngIf="nameOrder.invalid && nameOrder.touched"
+          class="form-help-text"
+        >Please enter a valid order name</span>
+      </div>
+
+      <div class="form-group"
+           [ngClass]="{'has-error': amount.invalid && amount.touched}"
+      >
+        <label class="control-label" for="edit-order-amount">Enter price</label>
+        <input
+          type="number"
+          id="edit-order-amount"
+          class="form-control"
+          required
+          name="amount"
+          #amount="ngModel"
+          [ngModel]="currentOrderEdit.amount"
+        >
+        <span class="form-help-text"
+              *ngIf="amount.invalid && amount.touched"
+        >
+        Please enter a valid price
+      </span>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Save</button>
+    </form>
+  </div>
+</div>
+
+
+

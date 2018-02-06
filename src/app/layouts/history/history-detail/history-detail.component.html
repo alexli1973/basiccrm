@@ -1,0 +1,25 @@
+<div class=" col-md-12">
+  <div class="title-block">
+    <h3 class="title">
+      Customer ordered <span class="sparkline bar"></span>
+    </h3>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Order ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of ordersById; let i = index">
+      <td>{{ i+1}}</td>
+      <td>{{ order?.orderId}}</td>
+      <td>{{ order?.nameOrder }}</td>
+      <td>{{ order?.amount }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

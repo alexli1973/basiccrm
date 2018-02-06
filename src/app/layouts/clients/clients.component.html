@@ -1,0 +1,24 @@
+
+<section class="section" *ngIf="!isLoaded">
+  Loading....
+</section>
+
+<section class="section" *ngIf="isLoaded" >
+  <div class="row">
+    <div class="col-md-6">
+      <app-add-client (eventClientAdd)="newClientAdded($event)"></app-add-client>
+    </div>
+
+    <div class="col-md-6" *ngIf="clientIsLoaded">
+      <app-edit-client [allClients]="allClients" (eventClientEdit)="clientWasEdited($event)"></app-edit-client>
+    </div>
+    <!--<div class="col-md-6">
+      <app-add-order [allClients]="allClients"></app-add-order>
+    </div>-->
+    <!--show list of clients here,  need add edit event!!! -->
+    <app-list-clients [allClients]="allClients"></app-list-clients>
+
+
+
+  </div>
+</section>
